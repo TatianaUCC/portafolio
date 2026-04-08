@@ -21,7 +21,7 @@ export default function About() {
             {/* Photo */}
             <div className="mt-4 w-48 h-48 rounded-2xl overflow-hidden shadow-md">
               <Image
-                src="/images/profile.jpg"
+                src="/images/perfil.jpg"
                 alt="Tatiana Torres"
                 width={192}
                 height={192}
@@ -51,7 +51,7 @@ export default function About() {
             <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center gap-3 mt-2">
               <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/perfil.jpg"
                   alt="Tatiana Torres Gomez"
                   width={36}
                   height={36}

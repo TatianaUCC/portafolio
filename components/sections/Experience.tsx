@@ -4,6 +4,14 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 bg-[#fdf6f0]">
       <div className="max-w-4xl mx-auto px-8">
+        {/* Title arriba */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            Mi Trayectoria
+          </h2>
+          <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
+        </div>
+
         {/* Timeline items */}
         <div className="relative">
           {/* Center line */}
@@ -41,14 +49,6 @@ export default function Experience() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Title below timeline */}
-        <div className="text-center mt-16">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Mi Trayectoria
-          </h2>
-          <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
         </div>
       </div>
     </section>

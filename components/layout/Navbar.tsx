@@ -41,7 +41,7 @@ export default function Navbar() {
         >
           <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-pink-300 flex-shrink-0">
             <Image
-              src="/images/profile.jpg"
+              src="/images/perfil.jpg"
               alt="Tatiana"
               width={36}
               height={36}
