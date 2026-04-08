@@ -38,19 +38,28 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Marcar todos como tocados y validar
     setTouched({ name: true, email: true, message: true })
     const allErrors = validateAll(form)
     setErrors(allErrors)
     if (!isFormValid(allErrors)) return
 
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 1000))
-    setLoading(false)
-    setSent(true)
-    setForm(EMPTY)
-    setTouched({ name: false, email: false, message: false })
-    setErrors({})
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error()
+      setSent(true)
+      setForm(EMPTY)
+      setTouched({ name: false, email: false, message: false })
+      setErrors({})
+    } catch {
+      alert('Hubo un error al enviar. Intenta de nuevo.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const allValid = isFormValid(validateAll(form)) &&
