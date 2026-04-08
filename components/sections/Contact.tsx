@@ -37,9 +37,11 @@ export default function Contact() {
             </p>
 
             <div className="flex flex-col gap-3 mt-2">
-              <button
-                onClick={() => navigator.clipboard.writeText(personalInfo.email).then(() => alert('¡Email copiado!'))}
-                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group w-full text-left"
+              <a
+                href={`https://mail.google.com/mail/?view=cm&to=${personalInfo.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-pink-50 flex items-center justify-center flex-shrink-0">
                   <Mail size={15} className="text-pink-400" />
@@ -48,7 +50,7 @@ export default function Contact() {
                   <span className="text-sm text-gray-600 group-hover:text-pink-500 transition-colors block">Email</span>
                   <span className="text-xs text-gray-400">{personalInfo.email}</span>
                 </div>
-              </button>
+              </a>
 
               <a
                 href={personalInfo.github}
