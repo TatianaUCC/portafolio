@@ -1,26 +1,18 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Tatiana | Full Stack Developer',
-  description: 'Portafolio de Tatiana, desarrolladora full stack especializada en React, Next.js y Node.js.',
-  keywords: ['developer', 'portfolio', 'react', 'nextjs', 'fullstack'],
-  authors: [{ name: 'Tatiana' }],
-  openGraph: {
-    title: 'Tatiana | Full Stack Developer',
-    description: 'Portafolio de Tatiana, desarrolladora full stack.',
-    type: 'website',
-  },
+  description: 'Portafolio de Tatiana Torres, desarrolladora full stack.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className="scroll-smooth">
-      <body>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }

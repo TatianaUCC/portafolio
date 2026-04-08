@@ -4,27 +4,39 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
   background-color: #fdf6f0;
   color: #2d2d2d;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-::selection {
-  background: rgba(216, 130, 253, 0.3);
+/* Dark mode */
+.dark body {
+  background-color: #1a1a2e;
+  color: #e8e8e8;
+}
+.dark .bg-white { background-color: #16213e !important; }
+.dark .bg-white\/50 { background-color: rgba(22,33,62,0.5) !important; }
+.dark .bg-\[#fdf6f0\] { background-color: #0f3460 !important; }
+.dark .border-gray-100 { border-color: rgba(255,255,255,0.1) !important; }
+.dark .text-gray-800 { color: #f0f0f0 !important; }
+.dark .text-gray-600 { color: #cccccc !important; }
+.dark .text-gray-500 { color: #aaaaaa !important; }
+.dark .text-gray-400 { color: #888888 !important; }
+.dark .bg-gray-50 { background-color: rgba(255,255,255,0.05) !important; }
+.dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
+.dark input, .dark textarea {
+  background-color: #16213e !important;
+  color: #e8e8e8 !important;
+  border-color: rgba(255,255,255,0.15) !important;
 }
 
+::selection { background: rgba(216, 130, 253, 0.3); }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #fdf6f0; }
 ::-webkit-scrollbar-thumb { background: #d882fd; border-radius: 3px; }
