@@ -109,7 +109,7 @@ export const timeline = [
   {
     id: '3',
     title: 'Portafolio & Desarrollo Web',
-    period: '2026 - Presente',
+    period: '2026',
     description: 'Exploración de desarrollo web con React, Next.js y Tailwind. Construcción de este portafolio y proyectos personales enfocados en UI/UX y código limpio.',
     side: 'left',
     icon: '🚀',
