@@ -1,15 +1,24 @@
 import { skillCategories } from '@/data/portfolio'
 
+// Iconos SVG reales de cada tecnología
+const techIcons: Record<string, string> = {
+  'HTML / CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'Tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'Bases de datos': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'APIs/REST': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
+  'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+  'Blender': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg',
+  'VS Code': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+}
+
 const categoryIcons: Record<string, string> = {
   Frontend: '🎨',
   Backend: '⚙️',
   Herramientas: '🛠️',
-}
-
-// Convertir nivel numérico a puntos (1-5)
-function getDots(level: number) {
-  const filled = Math.round((level / 100) * 5)
-  return Array.from({ length: 5 }, (_, i) => i < filled)
 }
 
 export default function Skills() {
@@ -29,7 +38,7 @@ export default function Skills() {
               key={cat.title}
               className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5"
             >
-              {/* Header de la card */}
+              {/* Header */}
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-lg">
                   {categoryIcons[cat.title]}
@@ -37,24 +46,29 @@ export default function Skills() {
                 <h3 className="font-bold text-gray-800">{cat.title}</h3>
               </div>
 
-              {/* Skills */}
+              {/* Skills con iconos */}
               <div className="flex flex-col gap-3">
                 {cat.skills.map((skill) => (
-                  <div key={skill.name} className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">{skill.name}</span>
-                    {/* Puntos de nivel */}
-                    <div className="flex items-center gap-1">
-                      {getDots(skill.level).map((filled, i) => (
-                        <div
-                          key={i}
-                          className={`w-2 h-2 rounded-full transition-colors ${
-                            filled
-                              ? 'bg-gradient-to-r from-pink-400 to-purple-400'
-                              : 'bg-gray-200'
-                          }`}
+                  <div
+                    key={skill.name}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    {/* Icono de la tecnología */}
+                    <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                      {techIcons[skill.name] ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={techIcons[skill.name]}
+                          alt={skill.name}
+                          width={28}
+                          height={28}
+                          className="object-contain"
                         />
-                      ))}
+                      ) : (
+                        <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100" />
+                      )}
                     </div>
+                    <span className="text-sm text-gray-600 font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>
