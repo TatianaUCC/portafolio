@@ -16,11 +16,15 @@ export default function Hero() {
         </h1>
 
         <p className="text-gray-500 text-lg">
-          Construyo experiencias digitales con estilo, lógica y creatividad
+          Construyo experiencias digitales donde la lógica y la creatividad van de la mano
         </p>
 
         <p className="text-gray-400 text-sm">
           Estudiante de Ingeniería de Software | Desarrolladora en formación
+        </p>
+
+        <p className="text-gray-400 text-sm leading-relaxed max-w-lg">
+          Soy estudiante de Ingeniería de Software y actualmente me estoy formando como desarrolladora, explorando cómo transformar ideas en soluciones funcionales y visualmente atractivas. Me interesa crear proyectos que no solo funcionen bien, sino que también transmitan estilo y personalidad.
         </p>
 
         <div className="flex items-center gap-3 mt-2">
