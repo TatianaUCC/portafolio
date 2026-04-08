@@ -4,7 +4,7 @@ import { projects } from '@/data/portfolio'
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white/50">
+    <section id="projects" className="py-24 bg-white/50 dark:bg-[#13131f]">
       <div className="max-w-5xl mx-auto px-8">
         {/* Title */}
         <div className="text-center mb-14">
@@ -18,7 +18,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col"
+              className="bg-white dark:bg-[#1a1a2e] rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-white/10 flex flex-col"
             >
               {/* Image */}
               <div className="h-44 overflow-hidden">
@@ -77,3 +77,4 @@ export default function Projects() {
     </section>
   )
 }
+

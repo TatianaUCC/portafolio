@@ -3,7 +3,7 @@ import { personalInfo, interests } from '@/data/portfolio'
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white/50">
+    <section id="about" className="py-24 bg-white/50 dark:bg-[#13131f]">
       <div className="max-w-5xl mx-auto px-8">
         {/* Title */}
         <div className="text-center mb-14">
@@ -27,7 +27,7 @@ export default function About() {
             </div>
 
             {/* Card nombre */}
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center gap-3 w-64">
+            <div className="bg-white dark:bg-[#1a1a2e] rounded-xl p-4 shadow-sm border border-gray-100 dark:border-white/10 flex items-center gap-3 w-64">
               <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/images/perfil.jpg"
@@ -54,7 +54,7 @@ export default function About() {
               {interests.map((item) => (
                 <div
                   key={item.title}
-                  className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-start gap-3"
+                  className="bg-white dark:bg-[#1a1a2e] rounded-xl p-4 shadow-sm border border-gray-100 dark:border-white/10 flex items-start gap-3"
                 >
                   <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-lg flex-shrink-0">
                     {item.icon}
@@ -73,3 +73,4 @@ export default function About() {
     </section>
   )
 }
+

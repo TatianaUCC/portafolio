@@ -15,25 +15,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark mode */
 .dark body {
-  background-color: #1a1a2e;
+  background-color: #0f0f1a;
   color: #e8e8e8;
-}
-.dark .bg-white { background-color: #16213e !important; }
-.dark .bg-white\/50 { background-color: rgba(22,33,62,0.5) !important; }
-.dark .bg-\[#fdf6f0\] { background-color: #0f3460 !important; }
-.dark .border-gray-100 { border-color: rgba(255,255,255,0.1) !important; }
-.dark .text-gray-800 { color: #f0f0f0 !important; }
-.dark .text-gray-600 { color: #cccccc !important; }
-.dark .text-gray-500 { color: #aaaaaa !important; }
-.dark .text-gray-400 { color: #888888 !important; }
-.dark .bg-gray-50 { background-color: rgba(255,255,255,0.05) !important; }
-.dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
-.dark input, .dark textarea {
-  background-color: #16213e !important;
-  color: #e8e8e8 !important;
-  border-color: rgba(255,255,255,0.15) !important;
 }
 
 ::selection { background: rgba(216, 130, 253, 0.3); }

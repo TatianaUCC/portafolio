@@ -66,7 +66,7 @@ export default function Contact() {
     form.name !== '' && form.email !== '' && form.message !== ''
 
   return (
-    <section id="contact" className="py-24 bg-white/50">
+    <section id="contact" className="py-24 bg-white/50 dark:bg-[#13131f]">
       <div className="max-w-5xl mx-auto px-8">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
@@ -88,7 +88,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enviar email"
-                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
+                className="flex items-center gap-3 bg-white dark:bg-[#1a1a2e] rounded-xl px-4 py-3 shadow-sm border border-gray-100 dark:border-white/10 hover:border-pink-200 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-pink-50 flex items-center justify-center flex-shrink-0">
                   <Mail size={15} className="text-pink-400" />
@@ -103,7 +103,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Perfil de GitHub"
-                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
+                className="flex items-center gap-3 bg-white dark:bg-[#1a1a2e] rounded-xl px-4 py-3 shadow-sm border border-gray-100 dark:border-white/10 hover:border-pink-200 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center">
                   <Github size={15} className="text-gray-500" />
@@ -115,7 +115,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Perfil de LinkedIn"
-                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
+                className="flex items-center gap-3 bg-white dark:bg-[#1a1a2e] rounded-xl px-4 py-3 shadow-sm border border-gray-100 dark:border-white/10 hover:border-pink-200 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
                   <Linkedin size={15} className="text-blue-400" />
@@ -157,7 +157,7 @@ export default function Contact() {
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                   placeholder="TuNombre"
-                  className={`w-full bg-[#fdf6f0] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors ${
+                  className={`w-full bg-[#fdf6f0] dark:bg-[#1a1a2e] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors ${
                     errors.name ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-pink-300'
                   }`}
                 />
@@ -184,7 +184,7 @@ export default function Contact() {
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                   placeholder="tu@email.com"
-                  className={`w-full bg-[#fdf6f0] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors ${
+                  className={`w-full bg-[#fdf6f0] dark:bg-[#1a1a2e] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors ${
                     errors.email ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-pink-300'
                   }`}
                 />
@@ -210,7 +210,7 @@ export default function Contact() {
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   placeholder="Cuéntame sobre tu proyecto o idea..."
-                  className={`w-full bg-[#fdf6f0] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors resize-none ${
+                  className={`w-full bg-[#fdf6f0] dark:bg-[#1a1a2e] border rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none transition-colors resize-none ${
                     errors.message ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-pink-300'
                   }`}
                 />
@@ -250,3 +250,4 @@ export default function Contact() {
     </section>
   )
 }
+
