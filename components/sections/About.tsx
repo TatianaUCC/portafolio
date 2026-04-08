@@ -12,58 +12,62 @@ export default function About() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left: bio + photo */}
-          <div className="flex flex-col gap-5">
-            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio1}</p>
-            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio2}</p>
-            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio3}</p>
 
-            {/* Photo */}
-            <div className="mt-4 w-48 h-48 rounded-2xl overflow-hidden shadow-md">
+          {/* LEFT: foto + card nombre */}
+          <div className="flex flex-col items-center gap-4">
+            {/* Foto grande */}
+            <div className="w-64 h-72 rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/images/perfil.jpg"
                 alt="Tatiana Torres"
-                width={192}
-                height={192}
+                width={256}
+                height={288}
                 className="object-cover w-full h-full"
               />
             </div>
-          </div>
 
-          {/* Right: interests + profile card */}
-          <div className="flex flex-col gap-4">
-            {interests.map((item) => (
-              <div
-                key={item.title}
-                className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-start gap-3"
-              >
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-lg flex-shrink-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-700 text-sm">{item.title}</div>
-                  <div className="text-gray-400 text-xs mt-0.5">{item.desc}</div>
-                </div>
-              </div>
-            ))}
-
-            {/* Profile card */}
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center gap-3 mt-2">
-              <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+            {/* Card nombre */}
+            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center gap-3 w-64">
+              <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/images/perfil.jpg"
                   alt="Tatiana Torres Gomez"
-                  width={36}
-                  height={36}
+                  width={40}
+                  height={40}
                   className="object-cover w-full h-full"
                 />
               </div>
               <div>
                 <div className="font-semibold text-gray-700 text-sm">Tatiana Torres Gomez</div>
-                <div className="text-gray-400 text-xs">Estudiante de Ing. Software...</div>
+                <div className="text-gray-400 text-xs mt-0.5">Estudiante de Ing. Software</div>
               </div>
             </div>
           </div>
+
+          {/* RIGHT: bio + intereses */}
+          <div className="flex flex-col gap-5">
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio1}</p>
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio2}</p>
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio3}</p>
+
+            <div className="flex flex-col gap-3 mt-2">
+              {interests.map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-start gap-3"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-lg flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-700 text-sm">{item.title}</div>
+                    <div className="text-gray-400 text-xs mt-0.5">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
