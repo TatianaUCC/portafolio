@@ -1,92 +1,67 @@
-'use client'
-
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { cn } from '@/lib/utils'
-import SectionTitle from '@/components/ui/SectionTitle'
-import { personalInfo, education } from '@/data/portfolio'
-import { GraduationCap, MapPin, Mail, Code2 } from 'lucide-react'
+import Image from 'next/image'
+import { personalInfo, interests } from '@/data/portfolio'
 
 export default function About() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section id="about" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionTitle
-          title="Sobre mí"
-          subtitle="Un poco de quién soy y qué me apasiona."
-        />
+    <section id="about" className="py-24 bg-white/50">
+      <div className="max-w-5xl mx-auto px-8">
+        {/* Title */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold text-gray-800">Sobre Mí</h2>
+          <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
+        </div>
 
-        <div
-          ref={ref}
-          className={cn(
-            'grid md:grid-cols-2 gap-12 transition-all duration-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          )}
-        >
-          {/* Bio */}
-          <div className="flex flex-col gap-6">
-            <p className="text-text-secondary leading-relaxed text-lg">
-              {personalInfo.bio}
-            </p>
-            <p className="text-text-secondary leading-relaxed">
-              Cuando no estoy programando, me gusta explorar nuevas tecnologías, contribuir a proyectos open source y aprender sobre diseño UX/UI para crear productos más completos.
-            </p>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left: bio + photo */}
+          <div className="flex flex-col gap-5">
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio1}</p>
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio2}</p>
+            <p className="text-gray-500 text-sm leading-relaxed">{personalInfo.bio3}</p>
 
-            <div className="flex flex-col gap-3 mt-2">
-              <div className="flex items-center gap-3 text-text-secondary">
-                <MapPin size={16} className="text-accent flex-shrink-0" />
-                <span>{personalInfo.location}</span>
-              </div>
-              <div className="flex items-center gap-3 text-text-secondary">
-                <Mail size={16} className="text-accent flex-shrink-0" />
-                <span>{personalInfo.email}</span>
-              </div>
-              <div className="flex items-center gap-3 text-text-secondary">
-                <Code2 size={16} className="text-accent flex-shrink-0" />
-                <span>Full Stack Developer</span>
-              </div>
+            {/* Photo */}
+            <div className="mt-4 w-48 h-48 rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/profile.jpg"
+                alt="Tatiana Torres"
+                width={192}
+                height={192}
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
 
-          {/* Education */}
-          <div className="flex flex-col gap-6">
-            <h3 className="text-white font-semibold text-xl flex items-center gap-2">
-              <GraduationCap size={20} className="text-accent" />
-              Educación
-            </h3>
-
-            <div className="flex flex-col gap-5">
-              {education.map((edu) => (
-                <div
-                  key={edu.id}
-                  className="border-l-2 border-accent/30 pl-4 hover:border-accent transition-colors duration-300"
-                >
-                  <div className="text-white font-medium">{edu.degree}</div>
-                  <div className="text-accent text-sm mt-0.5">{edu.institution}</div>
-                  <div className="text-text-muted text-sm mt-0.5">{edu.period}</div>
-                  {edu.description && (
-                    <div className="text-text-secondary text-sm mt-1">{edu.description}</div>
-                  )}
+          {/* Right: interests + profile card */}
+          <div className="flex flex-col gap-4">
+            {interests.map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-start gap-3"
+              >
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-lg flex-shrink-0">
+                  {item.icon}
                 </div>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-4">
-              {[
-                { value: '6+', label: 'Proyectos' },
-                { value: '2+', label: 'Años exp.' },
-                { value: '10+', label: 'Tecnologías' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-surface border border-white/10 rounded-lg p-4 text-center"
-                >
-                  <div className="text-2xl font-bold text-accent">{stat.value}</div>
-                  <div className="text-text-muted text-xs mt-1">{stat.label}</div>
+                <div>
+                  <div className="font-semibold text-gray-700 text-sm">{item.title}</div>
+                  <div className="text-gray-400 text-xs mt-0.5">{item.desc}</div>
                 </div>
-              ))}
+              </div>
+            ))}
+
+            {/* Profile card */}
+            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center gap-3 mt-2">
+              <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Tatiana Torres Gomez"
+                  width={36}
+                  height={36}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div>
+                <div className="font-semibold text-gray-700 text-sm">Tatiana Torres Gomez</div>
+                <div className="text-gray-400 text-xs">Estudiante de Ing. Software...</div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,146 +1,117 @@
-import type { Project, Skill, Experience, Education, SocialLink } from '@/types'
-
 export const personalInfo = {
-  name: 'Tatiana',
-  lastName: 'Desarrolladora',
+  name: 'Tatiana Torres',
   role: 'Full Stack Developer',
-  tagline: 'Construyo experiencias digitales que importan.',
-  bio: 'Soy desarrolladora full stack apasionada por crear soluciones web modernas y escalables. Me especializo en React, Next.js y Node.js, con un enfoque en la experiencia del usuario y el código limpio.',
+  tagline: 'Construyo experiencias digitales con estilo, lógica y creatividad',
+  subtitle: 'Estudiante de Ingeniería de Software | Desarrolladora en formación',
+  bio1: 'Soy estudiante de Ingeniería de Software apasionada por transformar ideas en código. Me encanta ese momento cuando las cosas finalmente funcionan después de horas depurando.',
+  bio2: 'Actualmente me encuentro explorando el diseño de interfaces y el desarrollo de videojuegos, trabajando con herramientas como Figma, Blender y creando prototipos 3D que combinan narrativa con estética visual.',
+  bio3: 'Mi objetivo es seguir aprendiendo todos los días y construir proyectos que no solo funcionen, sino que también cuenten historias y conecten con las personas.',
   email: 'tatiana@email.com',
-  location: 'Colombia',
-  available: true,
+  github: 'https://github.com/TatianaUCC',
+  linkedin: 'https://linkedin.com',
+  photo: '/images/profile.jpg',
 }
 
-export const socialLinks: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/TatianaUCC', icon: 'github' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'linkedin' },
-  { name: 'Twitter', url: 'https://twitter.com', icon: 'twitter' },
+export const interests = [
+  {
+    icon: '💻',
+    title: 'Desarrollo',
+    desc: 'Creando aplicaciones web con código limpio.',
+  },
+  {
+    icon: '🎨',
+    title: 'Diseño UI',
+    desc: 'Explorando interfaces visuales y experiencias de usuario.',
+  },
+  {
+    icon: '🎮',
+    title: 'Videojuegos',
+    desc: 'Desarrollando narrativas interactivas y mundos 3D con estilo.',
+  },
 ]
 
-export const skills: Skill[] = [
-  // Frontend
-  { name: 'React', level: 90, category: 'frontend' },
-  { name: 'Next.js', level: 85, category: 'frontend' },
-  { name: 'TypeScript', level: 80, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 90, category: 'frontend' },
-  { name: 'HTML/CSS', level: 95, category: 'frontend' },
-  { name: 'JavaScript', level: 88, category: 'frontend' },
-  // Backend
-  { name: 'Node.js', level: 78, category: 'backend' },
-  { name: 'Express', level: 75, category: 'backend' },
-  { name: 'PostgreSQL', level: 70, category: 'backend' },
-  { name: 'MongoDB', level: 72, category: 'backend' },
-  { name: 'REST APIs', level: 82, category: 'backend' },
-  // Tools
-  { name: 'Git', level: 85, category: 'tools' },
-  { name: 'Docker', level: 60, category: 'tools' },
-  { name: 'Vercel', level: 88, category: 'tools' },
-  { name: 'Figma', level: 70, category: 'design' },
+export const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'HTML / CSS', level: 75 },
+      { name: 'JavaScript', level: 65 },
+      { name: 'React', level: 60 },
+      { name: 'Tailwind', level: 70 },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', level: 50 },
+      { name: 'Bases de datos', level: 45 },
+      { name: 'APIs/REST', level: 55 },
+    ],
+  },
+  {
+    title: 'Herramientas',
+    skills: [
+      { name: 'Git', level: 65 },
+      { name: 'Figma', level: 70 },
+      { name: 'Blender', level: 55 },
+      { name: 'VS Code', level: 80 },
+    ],
+  },
 ]
 
-export const projects: Project[] = [
+export const projects = [
   {
     id: '1',
-    title: 'E-Commerce Platform',
-    description: 'Plataforma de comercio electrónico completa con carrito, pagos y panel admin.',
-    longDescription: 'Aplicación full stack con autenticación, gestión de productos, carrito de compras, integración con Stripe y panel de administración.',
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Tailwind'],
+    title: 'Hollow Streets',
+    description: 'Videojuego 3D ambientado en un contexto folklórico urbano con enfoque en narrativa inmersiva y diseño visual detallado.',
+    image: '/images/hollow-streets.jpg',
+    tags: ['Unity', 'C#', 'Pixel Art', 'Narrativa'],
     github: 'https://github.com/TatianaUCC',
-    live: 'https://demo.com',
-    featured: true,
-    category: 'web',
+    demo: '#',
   },
   {
     id: '2',
-    title: 'Task Manager App',
-    description: 'Aplicación de gestión de tareas con drag & drop, etiquetas y colaboración en tiempo real.',
-    longDescription: 'App de productividad con tableros Kanban, asignación de tareas, notificaciones en tiempo real con WebSockets.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Redux'],
+    title: 'Portafolio Personal',
+    description: 'Página web moderna y responsiva para mostrar mis proyectos, habilidades y trayectoria como desarrolladora.',
+    image: '/images/portfolio.jpg',
+    tags: ['React', 'Tailwind', 'Next.js'],
     github: 'https://github.com/TatianaUCC',
-    featured: true,
-    category: 'web',
+    demo: '#',
   },
   {
     id: '3',
-    title: 'Weather Dashboard',
-    description: 'Dashboard del clima con visualizaciones interactivas y pronóstico de 7 días.',
-    tech: ['React', 'Chart.js', 'OpenWeather API', 'CSS Modules'],
+    title: 'Task Manager',
+    description: 'Aplicación sencilla para organizar tareas y notas del día a día con interfaz minimalista e intuitiva.',
+    image: '/images/task-manager.jpg',
+    tags: ['JavaScript', 'HTML', 'CSS'],
     github: 'https://github.com/TatianaUCC',
-    live: 'https://demo.com',
-    featured: false,
-    category: 'web',
-  },
-  {
-    id: '4',
-    title: 'Blog CMS',
-    description: 'Sistema de gestión de contenido para blogs con editor markdown y SEO optimizado.',
-    tech: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL'],
-    github: 'https://github.com/TatianaUCC',
-    featured: false,
-    category: 'web',
-  },
-  {
-    id: '5',
-    title: 'API REST - Inventario',
-    description: 'API RESTful para gestión de inventario con autenticación JWT y documentación Swagger.',
-    tech: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Swagger'],
-    github: 'https://github.com/TatianaUCC',
-    featured: false,
-    category: 'backend',
-  },
-  {
-    id: '6',
-    title: 'Portfolio v1',
-    description: 'Primera versión de mi portafolio personal, construido con HTML, CSS y JavaScript vanilla.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/TatianaUCC',
-    featured: false,
-    category: 'web',
+    demo: '#',
   },
 ]
 
-export const experiences: Experience[] = [
+export const timeline = [
   {
     id: '1',
-    company: 'Tech Startup',
-    role: 'Frontend Developer',
-    period: 'Ene 2024 - Presente',
-    description: [
-      'Desarrollo de interfaces con React y Next.js para productos SaaS.',
-      'Implementación de design system con Tailwind CSS y Storybook.',
-      'Optimización de rendimiento logrando mejoras del 40% en Core Web Vitals.',
-    ],
-    tech: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
-    current: true,
+    title: 'Proyectos Personales',
+    period: '2023 - 2026',
+    description: 'Desarrollo de videojuegos 3D, aplicaciones web y exploración de tecnologías como React, Blender y herramientas de diseño UI/UX.',
+    side: 'left',
+    icon: '🚀',
   },
   {
     id: '2',
-    company: 'Agencia Digital',
-    role: 'Web Developer',
-    period: 'Jun 2023 - Dic 2023',
-    description: [
-      'Desarrollo de sitios web para clientes de distintos sectores.',
-      'Integración de CMS headless (Contentful, Sanity).',
-      'Colaboración directa con diseñadores UX/UI.',
-    ],
-    tech: ['React', 'JavaScript', 'WordPress', 'Figma'],
-    current: false,
-  },
-]
-
-export const education: Education[] = [
-  {
-    id: '1',
-    institution: 'Universidad Cooperativa de Colombia',
-    degree: 'Ingeniería de Sistemas',
-    period: '2020 - 2025',
-    description: 'Énfasis en desarrollo de software y arquitectura de sistemas.',
+    title: 'Proyectos Académicos',
+    period: '2023 - 2026',
+    description: 'Trabajos universitarios enfocados en desarrollo de software, estructuras de datos, algoritmos y metodologías ágiles de programación.',
+    side: 'right',
+    icon: '📚',
   },
   {
-    id: '2',
-    institution: 'Platzi',
-    degree: 'Escuela de JavaScript',
-    period: '2022 - 2023',
-    description: 'Cursos de React, Node.js, bases de datos y buenas prácticas.',
+    id: '3',
+    title: 'Aprendizaje Continuo',
+    period: '2024 - Presente',
+    description: 'Estudio autodidacta de frameworks modernos, participación en comunidades de desarrollo y mejora constante de habilidades técnicas.',
+    side: 'left',
+    icon: '🎯',
   },
 ]

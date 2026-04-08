@@ -1,21 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { cn } from '@/lib/utils'
-import SectionTitle from '@/components/ui/SectionTitle'
-import Button from '@/components/ui/Button'
-import { personalInfo, socialLinks } from '@/data/portfolio'
-import { Mail, Github, Linkedin, Send, CheckCircle } from 'lucide-react'
-
-const iconMap: Record<string, React.ReactNode> = {
-  github: <Github size={20} />,
-  linkedin: <Linkedin size={20} />,
-  twitter: <Mail size={20} />,
-}
+import { Mail, Github, Linkedin, Send } from 'lucide-react'
+import { personalInfo } from '@/data/portfolio'
 
 export default function Contact() {
-  const { ref, isVisible } = useScrollAnimation()
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -23,129 +12,129 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate send
-    await new Promise((r) => setTimeout(r, 1200))
+    await new Promise((r) => setTimeout(r, 1000))
     setSent(true)
     setLoading(false)
   }
 
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionTitle
-          title="Contacto"
-          subtitle="¿Tienes un proyecto en mente? Hablemos."
-          align="center"
-        />
+    <section id="contact" className="py-24 bg-white/50">
+      <div className="max-w-5xl mx-auto px-8">
+        {/* Title */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            ¡Hablemos!
+          </h2>
+          <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
+        </div>
 
-        <div
-          ref={ref}
-          className={cn(
-            'grid md:grid-cols-2 gap-12 transition-all duration-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          )}
-        >
-          {/* Info */}
-          <div className="flex flex-col gap-6">
-            <p className="text-text-secondary leading-relaxed">
-              Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. No dudes en escribirme.
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Left: info */}
+          <div className="flex flex-col gap-5">
+            <h3 className="font-bold text-gray-800 text-lg">Conectemos</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Siempre estoy abierta a nuevas oportunidades, colaboraciones o simplemente una buena charla sobre tecnología y desarrollo. ¡No dudes en contactarme!
             </p>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 mt-2">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-3 text-text-secondary hover:text-accent transition-colors group"
+                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
               >
-                <div className="w-10 h-10 bg-surface border border-white/10 rounded-lg flex items-center justify-center group-hover:border-accent/40 transition-colors">
-                  <Mail size={18} className="text-accent" />
+                <div className="w-8 h-8 rounded-lg bg-pink-50 flex items-center justify-center">
+                  <Mail size={15} className="text-pink-400" />
                 </div>
-                <span>{personalInfo.email}</span>
+                <span className="text-sm text-gray-600 group-hover:text-pink-500 transition-colors">Email</span>
               </a>
 
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-text-secondary hover:text-accent transition-colors group"
-                >
-                  <div className="w-10 h-10 bg-surface border border-white/10 rounded-lg flex items-center justify-center group-hover:border-accent/40 transition-colors">
-                    <span className="text-accent">{iconMap[link.icon]}</span>
-                  </div>
-                  <span>{link.name}</span>
-                </a>
-              ))}
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center">
+                  <Github size={15} className="text-gray-500" />
+                </div>
+                <span className="text-sm text-gray-600 group-hover:text-pink-500 transition-colors">GitHub</span>
+              </a>
+
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-pink-200 transition-colors group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                  <Linkedin size={15} className="text-blue-400" />
+                </div>
+                <span className="text-sm text-gray-600 group-hover:text-pink-500 transition-colors">LinkedIn</span>
+              </a>
             </div>
           </div>
 
-          {/* Form */}
+          {/* Right: form */}
           {sent ? (
-            <div className="flex flex-col items-center justify-center gap-4 bg-surface border border-white/10 rounded-xl p-8 text-center">
-              <CheckCircle size={48} className="text-green-400" />
-              <h3 className="text-white font-semibold text-xl">Mensaje enviado</h3>
-              <p className="text-text-secondary">Gracias por escribirme. Te responderé pronto.</p>
-              <Button variant="outline" onClick={() => { setSent(false); setForm({ name: '', email: '', message: '' }) }}>
+            <div className="flex flex-col items-center justify-center gap-3 text-center">
+              <div className="text-4xl">✨</div>
+              <h3 className="font-bold text-gray-800">¡Mensaje enviado!</h3>
+              <p className="text-gray-400 text-sm">Gracias por escribirme, te respondo pronto.</p>
+              <button
+                onClick={() => { setSent(false); setForm({ name: '', email: '', message: '' }) }}
+                className="mt-2 text-sm text-pink-500 underline"
+              >
                 Enviar otro
-              </Button>
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label htmlFor="name" className="block text-text-secondary text-sm mb-1.5">
-                  Nombre
-                </label>
+                <label className="block text-sm text-gray-600 mb-1.5">Nombre</label>
                 <input
-                  id="name"
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Tu nombre"
-                  className="w-full bg-surface border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                  className="w-full bg-[#fdf6f0] border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none focus:border-pink-300 transition-colors"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-text-secondary text-sm mb-1.5">
-                  Email
-                </label>
+                <label className="block text-sm text-gray-600 mb-1.5">Email</label>
                 <input
-                  id="email"
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="tu@email.com"
-                  className="w-full bg-surface border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                  className="w-full bg-[#fdf6f0] border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none focus:border-pink-300 transition-colors"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-text-secondary text-sm mb-1.5">
-                  Mensaje
-                </label>
+                <label className="block text-sm text-gray-600 mb-1.5">Mensaje</label>
                 <textarea
-                  id="message"
                   required
-                  rows={5}
+                  rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Cuéntame sobre tu proyecto..."
-                  className="w-full bg-surface border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
+                  placeholder="Cuéntame sobre tu proyecto o idea..."
+                  className="w-full bg-[#fdf6f0] border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-300 focus:outline-none focus:border-pink-300 transition-colors resize-none"
                 />
               </div>
-              <Button type="submit" size="lg" disabled={loading} className="w-full">
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-pink-400 to-purple-400 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60"
+              >
                 {loading ? (
-                  <span className="flex items-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Enviando...
-                  </span>
+                  <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                 ) : (
                   <>
-                    <Send size={18} />
-                    Enviar mensaje
+                    Enviar Mensaje
+                    <Send size={14} />
                   </>
                 )}
-              </Button>
+              </button>
             </form>
           )}
         </div>

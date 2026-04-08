@@ -1,80 +1,54 @@
-'use client'
-
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
-import { cn } from '@/lib/utils'
-import SectionTitle from '@/components/ui/SectionTitle'
-import Badge from '@/components/ui/Badge'
-import { experiences } from '@/data/portfolio'
-import { Briefcase } from 'lucide-react'
+import { timeline } from '@/data/portfolio'
 
 export default function Experience() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
-    <section id="experience" className="py-24 bg-surface/30">
-      <div className="max-w-5xl mx-auto px-6">
-        <SectionTitle
-          title="Experiencia"
-          subtitle="Mi trayectoria profesional."
-        />
+    <section id="experience" className="py-24 bg-[#fdf6f0]">
+      <div className="max-w-4xl mx-auto px-8">
+        {/* Timeline items */}
+        <div className="relative">
+          {/* Center line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-pink-200 -translate-x-1/2 hidden md:block" />
 
-        <div
-          ref={ref}
-          className={cn(
-            'relative transition-all duration-700',
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          )}
-        >
-          {/* Timeline line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-white/10 hidden md:block" />
-
-          <div className="flex flex-col gap-8">
-            {experiences.map((exp, i) => (
+          <div className="flex flex-col gap-10">
+            {timeline.map((item) => (
               <div
-                key={exp.id}
-                className="md:pl-12 relative"
-                style={{ transitionDelay: `${i * 150}ms` }}
+                key={item.id}
+                className={`relative flex md:items-start gap-6 ${
+                  item.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'
+                }`}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-1 w-8 h-8 bg-surface border-2 border-accent rounded-full items-center justify-center hidden md:flex">
-                  <Briefcase size={14} className="text-accent" />
-                </div>
-
-                <div className="bg-surface border border-white/10 rounded-xl p-6 hover:border-accent/30 transition-colors duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
-                    <div>
-                      <h3 className="text-white font-semibold text-lg">{exp.role}</h3>
-                      <div className="text-accent text-sm mt-0.5">{exp.company}</div>
+                {/* Card */}
+                <div className="md:w-[calc(50%-2rem)] w-full">
+                  <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-base">
+                        {item.icon}
+                      </div>
+                      <h3 className="font-bold text-gray-800 text-sm">{item.title}</h3>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-text-muted text-sm whitespace-nowrap">{exp.period}</span>
-                      {exp.current && (
-                        <span className="flex items-center gap-1 text-green-400 text-xs">
-                          <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                          Actual
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <ul className="flex flex-col gap-2 mb-4">
-                    {exp.description.map((desc, j) => (
-                      <li key={j} className="text-text-secondary text-sm flex gap-2">
-                        <span className="text-accent mt-1 flex-shrink-0">▸</span>
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {exp.tech.map((tech) => (
-                      <Badge key={tech} variant="accent">{tech}</Badge>
-                    ))}
+                    <p className="text-gray-400 text-xs leading-relaxed">{item.description}</p>
                   </div>
                 </div>
+
+                {/* Center dot + period */}
+                <div className="hidden md:flex flex-col items-center gap-1 flex-shrink-0 w-16">
+                  <div className="w-3 h-3 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 mt-5" />
+                  <span className="text-xs text-pink-400 whitespace-nowrap">{item.period}</span>
+                </div>
+
+                {/* Spacer for opposite side */}
+                <div className="hidden md:block md:w-[calc(50%-2rem)]" />
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Title below timeline */}
+        <div className="text-center mt-16">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            Mi Trayectoria
+          </h2>
+          <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
         </div>
       </div>
     </section>
