@@ -2,18 +2,22 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { validateAll, isFormValid } from '@/lib/validateContact'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: Request) {
   try {
     const body = await req.json()
     const { name, email, message } = body
 
-    // Validar en el servidor también
     const errors = validateAll({ name, email, message })
     if (!isFormValid(errors)) {
       return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 })
     }
+
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ error: 'Servicio de email no configurado' }, { status: 503 })
+    }
+
+    const resend = new Resend(apiKey)
 
     await resend.emails.send({
       from: 'Portafolio <onboarding@resend.dev>',
