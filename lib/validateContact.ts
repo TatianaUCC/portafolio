@@ -1,5 +1,6 @@
 // Expresiones regulares
-const ONLY_LETTERS = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+$/
+// Nombre: letras y espacios entre palabras, sin espacios al inicio ni al final, sin números ni especiales
+const VALID_NAME = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+([  ][a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]+)*$/
 const VALID_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export interface FormValues {
@@ -18,8 +19,8 @@ export function validateField(field: keyof FormValues, value: string): string | 
   switch (field) {
     case 'name':
       if (!value.trim()) return 'El nombre es obligatorio.'
-      if (/\s/.test(value)) return 'El nombre no debe contener espacios.'
-      if (!ONLY_LETTERS.test(value)) return 'Solo se permiten letras (sin números ni caracteres especiales).'
+      if (/^\s/.test(value)) return 'El nombre no puede empezar con un espacio.'
+      if (!VALID_NAME.test(value.trim())) return 'Solo se permiten letras (sin números ni caracteres especiales).'
       return undefined
 
     case 'email':
