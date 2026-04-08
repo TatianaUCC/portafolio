@@ -51,9 +51,10 @@ export default function Skills() {
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-gray-50 transition-colors"
                   >
-                    {/* Icono de la tecnología */}
+                    <span className="text-sm text-gray-600 font-medium">{skill.name}</span>
+                    {/* Icono a la derecha */}
                     <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                       {techIcons[skill.name] ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -68,7 +69,6 @@ export default function Skills() {
                         <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100" />
                       )}
                     </div>
-                    <span className="text-sm text-gray-600 font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>
