@@ -1,29 +1,38 @@
+'use client'
+
+import { useLang } from '@/hooks/useLang'
+import { translations } from '@/lib/i18n'
 import { timeline } from '@/data/portfolio'
 
+const timelineEN = [
+  { id: '1', title: 'Started University', period: '2024', description: 'Began my Software Engineering degree at Universidad Cooperativa de Colombia. First steps in programming, logic and development fundamentals.', side: 'left', icon: '🎓' },
+  { id: '2', title: 'Hollow Streets', period: '2025', description: 'Participated in the development of Hollow Streets, a 3D video game with urban folkloric narrative using Unity and Blender. Reached the character design stage.', side: 'right', icon: '🎮' },
+  { id: '3', title: 'Portfolio & Web Development', period: '2026', description: 'Exploring web development with React, Next.js and Tailwind. Building this portfolio and personal projects focused on UI/UX and clean code.', side: 'left', icon: '🚀' },
+]
+
 export default function Experience() {
+  const { lang } = useLang()
+  const t = translations[lang].experience
+  const items = lang === 'es' ? timeline : timelineEN
+
   return (
-    <section id="experience" className="py-24 bg-[#fdf6f0] dark:bg-[#1c1b29]">
+    <section id="experience" className="py-24 bg-[#fdf6f0] dark:bg-[#0f0f1a]">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Mi Trayectoria
-          </h2>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">{t.title}</h2>
           <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
         </div>
 
         <div className="relative">
-          {/* Línea central desktop */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-pink-200 dark:bg-pink-900 -translate-x-1/2 hidden md:block" />
-          {/* Línea izquierda mobile */}
           <div className="absolute left-3 top-0 bottom-0 w-px bg-pink-200 dark:bg-pink-900 md:hidden" />
 
           <div className="flex flex-col gap-4 md:gap-10">
-            {timeline.map((item) => (
+            {items.map((item) => (
               <div key={item.id}>
-
                 {/* MOBILE */}
                 <div className="flex items-start gap-3 md:hidden pl-8 relative">
-                  <div className="absolute left-[9px] top-4 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 ring-2 ring-white dark:ring-[#1c1b29] flex-shrink-0" />
+                  <div className="absolute left-[9px] top-4 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 ring-2 ring-white dark:ring-[#0f0f1a] flex-shrink-0" />
                   <div className="bg-white dark:bg-[#252336] border border-gray-100 dark:border-white/10 rounded-2xl p-4 shadow-sm w-full">
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center gap-2">
@@ -32,7 +41,7 @@ export default function Experience() {
                       </div>
                       <span className="text-xs text-pink-400 font-medium whitespace-nowrap ml-2">{item.period}</span>
                     </div>
-                    <p className="text-gray-400 dark:text-gray-400 text-xs leading-relaxed mt-1">{item.description}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mt-1">{item.description}</p>
                   </div>
                 </div>
 
@@ -41,23 +50,18 @@ export default function Experience() {
                   <div className="w-[calc(50%-2rem)]">
                     <div className="bg-white dark:bg-[#252336] border border-gray-100 dark:border-white/10 rounded-2xl p-5 shadow-sm">
                       <div className="flex items-center gap-2.5 mb-3">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-900/40 dark:to-purple-900/40 flex items-center justify-center text-base">
-                          {item.icon}
-                        </div>
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-900/40 dark:to-purple-900/40 flex items-center justify-center text-base">{item.icon}</div>
                         <h3 className="font-bold text-gray-800 dark:text-white text-sm">{item.title}</h3>
                       </div>
                       <p className="text-gray-400 text-xs leading-relaxed">{item.description}</p>
                     </div>
                   </div>
-
                   <div className="flex flex-col items-center gap-1 w-16 flex-shrink-0">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 mt-5 ring-2 ring-white dark:ring-[#1c1b29]" />
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 mt-5 ring-2 ring-white dark:ring-[#0f0f1a]" />
                     <span className="text-xs text-pink-400 whitespace-nowrap">{item.period}</span>
                   </div>
-
                   <div className="w-[calc(50%-2rem)]" />
                 </div>
-
               </div>
             ))}
           </div>
@@ -66,4 +70,3 @@ export default function Experience() {
     </section>
   )
 }
-
