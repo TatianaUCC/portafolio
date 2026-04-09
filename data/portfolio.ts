@@ -102,7 +102,7 @@ export const timeline = [
     id: '2',
     title: 'Hollow Streets',
     period: '2025',
-    description: 'Desarrollé Hollow Streets, un videojuego 3D con narrativa folklórica urbana usando Unity y Blender. Mi primer proyecto grande combinando código y diseño visual.',
+    description: 'Participé en el desarrollo de Hollow Streets, un videojuego 3D con narrativa folklórica urbana usando Unity y Blender. Llegué hasta la etapa de diseño de personajes, sin completar el proyecto.',
     side: 'right',
     icon: '🎮',
   },
