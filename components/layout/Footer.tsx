@@ -10,7 +10,7 @@ export default function Footer() {
         Diseñado y desarrollado con ♥ por Tatiana
       </p>
       <p className="text-white/70 dark:text-purple-400 text-xs mt-1">
-        © 2026 · tatianatorres.dev
+        © 2026
       </p>
     </footer>
   )
