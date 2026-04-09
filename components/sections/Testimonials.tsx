@@ -1,3 +1,5 @@
+'use client'
+
 import { useLang } from '@/hooks/useLang'
 import { translations } from '@/lib/i18n'
 
