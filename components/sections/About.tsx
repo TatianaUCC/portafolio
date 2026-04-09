@@ -3,11 +3,11 @@ import { personalInfo, interests } from '@/data/portfolio'
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white/50 dark:bg-[#13131f]">
+    <section id="about" className="py-24 bg-[#fdf6f0] dark:bg-[#0f0f1a]">
       <div className="max-w-5xl mx-auto px-8">
         {/* Title */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-gray-800">Sobre Mí</h2>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Sobre Mí</h2>
           <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mt-3 rounded-full" />
         </div>
 

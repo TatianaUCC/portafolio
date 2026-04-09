@@ -107,7 +107,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); scrollTo(link.href) }}
-                  className="block py-3 text-sm text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors border-b border-gray-50 dark:border-white/5 last:border-0"
+                  className="block py-3 text-sm text-gray-700 dark:text-gray-200 hover:text-pink-500 transition-colors border-b border-gray-100 dark:border-white/5 last:border-0"
                 >
                   {link.label}
                 </a>

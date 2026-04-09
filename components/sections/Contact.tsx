@@ -66,7 +66,7 @@ export default function Contact() {
     form.name !== '' && form.email !== '' && form.message !== ''
 
   return (
-    <section id="contact" className="py-24 bg-white/50 dark:bg-[#13131f]">
+    <section id="contact" className="py-24 bg-[#fdf6f0] dark:bg-[#0f0f1a]">
       <div className="max-w-5xl mx-auto px-8">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
