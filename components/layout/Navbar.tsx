@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Sobre Mí', href: '#about' },
   { label: 'Habilidades', href: '#skills' },
   { label: 'Proyectos', href: '#projects' },
-  { label: 'Experiencia', href: '#experience' },
+  { label: 'Mi Trayectoria', href: '#experience' },
   { label: 'Contacto', href: '#contact' },
 ]
 
