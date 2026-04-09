@@ -33,7 +33,7 @@ export default function Projects() {
 
               {/* Content */}
               <div className="p-5 flex flex-col gap-3 flex-1">
-                <h3 className="font-bold text-gray-800">{project.title}</h3>
+                <h3 className="font-bold text-gray-800 dark:text-white">{project.title}</h3>
                 <p className="text-gray-400 text-xs leading-relaxed">{project.description}</p>
 
                 {/* Tags */}

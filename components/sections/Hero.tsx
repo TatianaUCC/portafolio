@@ -45,7 +45,12 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="mt-24 animate-bounce">
-        <ArrowDown size={20} className="text-purple-400" />
+        <button
+          onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+          aria-label="Ir a Sobre Mí"
+        >
+          <ArrowDown size={20} className="text-purple-400" />
+        </button>
       </div>
     </section>
   )
