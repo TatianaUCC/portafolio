@@ -22,7 +22,7 @@ const categoryIcons: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-[#fdf6f0] dark:bg-[#0f0f1a]">
+    <section id="skills" className="py-24 bg-[#fdf6f0] dark:bg-[#1c1b29]">
       <div className="max-w-5xl mx-auto px-8">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
@@ -35,7 +35,7 @@ export default function Skills() {
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="bg-white dark:bg-[#1a1a2e] border border-gray-100 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-5"
+              className="bg-white dark:bg-[#252336] border border-gray-100 dark:border-white/10 rounded-2xl p-6 shadow-sm flex flex-col gap-5"
             >
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-900/40 dark:to-purple-900/40 flex items-center justify-center text-lg">
@@ -69,3 +69,4 @@ export default function Skills() {
     </section>
   )
 }
+

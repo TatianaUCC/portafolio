@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="
       bg-gradient-to-r from-pink-300 to-purple-300
-      dark:bg-none dark:bg-[#0a0a14]
+      dark:bg-none dark:bg-[#161524]
       dark:border-t dark:border-white/10
       py-8 text-center
     ">
@@ -15,3 +15,4 @@ export default function Footer() {
     </footer>
   )
 }
+

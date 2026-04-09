@@ -38,7 +38,7 @@ export default function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled || menuOpen ? 'bg-white/90 dark:bg-[#1a1a2e]/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        scrolled || menuOpen ? 'bg-white/90 dark:bg-[#252336]/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
       )}
     >
       <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -100,7 +100,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[#1a1a2e]/95 backdrop-blur-md border-t border-gray-100 dark:border-white/10 px-6 py-4">
+        <div className="md:hidden bg-white/95 dark:bg-[#252336]/95 backdrop-blur-md border-t border-gray-100 dark:border-white/10 px-6 py-4">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -119,3 +119,4 @@ export default function Navbar() {
     </header>
   )
 }
+

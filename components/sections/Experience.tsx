@@ -2,7 +2,7 @@ import { timeline } from '@/data/portfolio'
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 bg-[#fdf6f0] dark:bg-[#0f0f1a]">
+    <section id="experience" className="py-24 bg-[#fdf6f0] dark:bg-[#1c1b29]">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
@@ -23,8 +23,8 @@ export default function Experience() {
 
                 {/* MOBILE */}
                 <div className="flex items-start gap-3 md:hidden pl-8 relative">
-                  <div className="absolute left-[9px] top-4 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 ring-2 ring-white dark:ring-[#0f0f1a] flex-shrink-0" />
-                  <div className="bg-white dark:bg-[#1a1a2e] border border-gray-100 dark:border-white/10 rounded-2xl p-4 shadow-sm w-full">
+                  <div className="absolute left-[9px] top-4 w-2.5 h-2.5 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 ring-2 ring-white dark:ring-[#1c1b29] flex-shrink-0" />
+                  <div className="bg-white dark:bg-[#252336] border border-gray-100 dark:border-white/10 rounded-2xl p-4 shadow-sm w-full">
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center gap-2">
                         <span className="text-base">{item.icon}</span>
@@ -39,7 +39,7 @@ export default function Experience() {
                 {/* DESKTOP */}
                 <div className={`hidden md:flex items-start gap-6 ${item.side === 'right' ? 'flex-row-reverse' : 'flex-row'}`}>
                   <div className="w-[calc(50%-2rem)]">
-                    <div className="bg-white dark:bg-[#1a1a2e] border border-gray-100 dark:border-white/10 rounded-2xl p-5 shadow-sm">
+                    <div className="bg-white dark:bg-[#252336] border border-gray-100 dark:border-white/10 rounded-2xl p-5 shadow-sm">
                       <div className="flex items-center gap-2.5 mb-3">
                         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-900/40 dark:to-purple-900/40 flex items-center justify-center text-base">
                           {item.icon}
@@ -51,7 +51,7 @@ export default function Experience() {
                   </div>
 
                   <div className="flex flex-col items-center gap-1 w-16 flex-shrink-0">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 mt-5 ring-2 ring-white dark:ring-[#0f0f1a]" />
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 mt-5 ring-2 ring-white dark:ring-[#1c1b29]" />
                     <span className="text-xs text-pink-400 whitespace-nowrap">{item.period}</span>
                   </div>
 
@@ -66,3 +66,4 @@ export default function Experience() {
     </section>
   )
 }
+
