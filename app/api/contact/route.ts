@@ -32,7 +32,7 @@ export async function POST(req: Request) {
           <div style="background: white; padding: 16px; border-radius: 8px; border-left: 3px solid #e879c8; margin-top: 8px;">
             ${message.replace(/\n/g, '<br/>')}
           </div>
-          <p style="color: #999; font-size: 12px; margin-top: 24px;">Enviado desde tatianatorres.dev</p>
+          <p style="color: #999; font-size: 12px; margin-top: 24px;">Mensaje recibido desde tu portafolio</p>
         </div>
       `,
     })
