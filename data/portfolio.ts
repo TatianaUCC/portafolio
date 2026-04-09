@@ -80,10 +80,10 @@ export const projects = [
   },
   {
     id: '3',
-    title: 'Task Manager',
-    description: 'Aplicación sencilla para organizar tareas y notas del día a día con interfaz minimalista e intuitiva.',
+    title: 'Auxiliar de Talento Humano',
+    description: 'Experiencia en apoyo a procesos de reclutamiento y selección, gestión de hojas de vida, coordinación de entrevistas y manejo de documentación del personal.',
     image: '/images/task.jpg',
-    tags: ['JavaScript', 'HTML', 'CSS'],
+    tags: ['Reclutamiento', 'RRHH', 'Gestión'],
     github: 'https://github.com/TatianaUCC',
     demo: '#',
   },
