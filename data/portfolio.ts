@@ -84,8 +84,6 @@ export const projects = [
     description: 'Experiencia en apoyo a procesos de reclutamiento y selección, gestión de hojas de vida, coordinación de entrevistas y manejo de documentación del personal.',
     image: '/images/task.jpg',
     tags: ['Reclutamiento', 'RRHH', 'Gestión'],
-    github: 'https://github.com/TatianaUCC',
-    demo: '#',
   },
 ]
 
